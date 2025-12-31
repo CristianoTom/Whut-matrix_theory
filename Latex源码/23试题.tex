@@ -1,0 +1,88 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{geometry}
+\usepackage{ctex} % 用于中文显示
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{武汉理工大学研究生考试试卷（A 卷）}} \\
+    \vspace{0.5cm}
+    \textbf{2023 ～ 2024 学年 1 学期 \underline{\quad 矩阵论(学硕) \quad} 课程 \quad 2024 年 1 月 7 日} \\
+    （请在答题本上作答，不必抄题，但须标明题目序号）
+\end{center}
+
+\vspace{0.5cm}
+
+\section*{一、填空题（每小题 3 分，共 15 分）}
+
+\begin{enumerate}
+    \item 已知 $m \times n$ 矩阵 $A$ 的秩为 $r$，线性方程组 $A^T A x = 0$ 的解空间的维数\underline{\hspace{2cm}}。
+    
+    \item $A = \begin{bmatrix} 1 & 2 \\ 1 & -1 \\ 1 & 2 \end{bmatrix}$ 的奇异值为\underline{\hspace{4cm}}。
+    
+    \item 求 (2) 中矩阵 $A$ 的 QR 分解为\underline{\hspace{4cm}}。
+    
+    \item 已知 $A = \begin{bmatrix} -2 & 0 & 0 \\ 0 & i & -1 \\ 0 & -1 & 3i \end{bmatrix}, i^2 = -1$，则其矩阵范数 $\|A\|_1 = $\underline{\hspace{1.5cm}}；$\|A\|_{\infty} = $\underline{\hspace{1.5cm}}；$\|A\|_F = $\underline{\hspace{1.5cm}}。
+    
+    \item 已知矩阵 $A$ 如 (4)，则 $A$ 的最小多项式为\underline{\hspace{3.5cm}}。
+\end{enumerate}
+
+\section*{二、（15 分）}
+设 $A = \begin{bmatrix} 2 & 0 & 0 \\ 1 & 1 & 1 \\ 1 & -1 & 3 \end{bmatrix}$
+\begin{enumerate}
+    \item 求 $A$ 的行列式因子，不变因子，初等因子；
+    \item 求 $A$ 的 Jordan 标准形和 $\lambda E - A$ 的 Smith 标准形；
+    \item 求 $A$ 的最小多项式。
+\end{enumerate}
+
+\section*{三、（15 分）}设 $F[t]_3 = \{f(t) = a + bt + ct^2 \mid a, b, c \in \mathbb{R}\}$，对 $F[t]_3$ 中的任意元素
+$f(t) = a + bt + ct^2$，定义映射 $T[f(t)] = (a + b + 4c) + (2a + 2b + 3c)t + 3at^2$。\\
+\begin{enumerate}
+    \item 证明 $T$ 是 $F[t]_3$ 上的线性变换；
+    \item 求 $T$ 在基 $1, t, t^2$ 基下的矩阵；
+    \item 求 $T$ 的像空间 $\mathrm{Im} T$ 的一组基和维数。
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{四、（15 分）}
+已知微分方程组\[
+\begin{cases} 
+\dfrac{dx(t)}{dt} = Ax(t) \\ 
+x(0) = x_0 
+\end{cases}, \quad A = \begin{bmatrix} 2 & 0 & 0 \\ 1 & 1 & 1 \\ 1 & -1 & 3 \end{bmatrix}, \quad x_0 = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}
+\]
+\begin{enumerate}
+    \item 求 $e^{At}, e^A$；
+    \item 求微分方程组的解。
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{五、（15 分）}设 $\mathbb{R}^4$ 的子空间
+\[ W = \{ X = (x_1, x_2, x_3, x_4)^T \mid AX = 0 \}, \text{ 其中 } A = \begin{bmatrix} 1 & 1 & -1 & -1 \\ -1 & 1 & 1 & -1 \\ -1 & -1 & 1 & 1 \\ 1 & -1 & -1 & 1 \end{bmatrix} \]
+对于任意的 $X = (x_1, x_2, x_3, x_4)^T, Y = (y_1, y_2, y_3, y_4)^T \in W$，定义内积
+\[ (X, Y) = x_1y_1 + 2x_2y_2 + x_3y_3 + 2x_4y_4 \]
+\begin{enumerate}
+    \item 证明 $W$ 为子空间；
+    \item 求 $W$ 一组标准正交基。
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{六、（25 分）}
+设 $A = \begin{bmatrix} 0 & 0 & 2 \\ 1 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 1 & 1 \end{bmatrix}, b = \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}$
+
+\begin{enumerate}
+    \item 求 $A$ 的满秩分解；
+    \item 求 $A$ 的广义逆 $A^+$；
+    \item 利用广义逆判断方程组 $Ax = b$ 的相容性；
+    \item 求 $Ax = b$ 的最小二乘解；
+    \item 求 $Ax = b$ 的极小范数最小二乘解。
+\end{enumerate}
+
+\end{document}
