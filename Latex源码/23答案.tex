@@ -4,6 +4,9 @@
 \usepackage{geometry}
 \usepackage{ctex} % 用于中文显示
 \newtheorem{lt}{}
+\newtheorem{solve}{解}
+\newtheorem{sign}{注}
+
 \geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 
 \begin{document}
@@ -95,12 +98,7 @@ $\lambda I-A = \begin{bmatrix}
 \end{lt}
 
 \section*{二、（15 分）}
-设 $A = \begin{bmatrix} 2 & 0 & 0 \\ 1 & 1 & 1 \\ 1 & -1 & 3 \end{bmatrix}$
-\begin{enumerate}
-    \item 求 $A$ 的行列式因子，不变因子，初等因子；
-    \item 求 $A$ 的 Jordan 标准形和 $\lambda E - A$ 的 Smith 标准形；
-    \item 求 $A$ 的最小多项式。
-\end{enumerate}
+\textbf{解}：
 
 $\lambda E - A=\begin{bmatrix} \lambda-2 & 0 & 0 \\ -1 & \lambda-1 & -1 \\ -1 & 1 & \lambda-3 \end{bmatrix}
 \rightarrow
@@ -112,52 +110,206 @@ $\lambda E - A=\begin{bmatrix} \lambda-2 & 0 & 0 \\ -1 & \lambda-1 & -1 \\ -1 & 
 \rightarrow
 \begin{bmatrix} 1 & 0 & 0\\0 & \lambda-2 & -(\lambda-2)^2   \\  0&\lambda-2  & 0  \end{bmatrix}
 \rightarrow
-\begin{bmatrix} 1 & 0 & 0\\0 & \lambda-2 & 0 \\  0&0  & (\lambda-2)^2  \end{bmatrix}$，即$Smith$标准型。
+\begin{bmatrix} 1 & 0 & 0\\0 & \lambda-2 & 0 \\  0&0  & (\lambda-2)^2  \end{bmatrix}$，即$Smith$标准型。\\
 
-\section*{三、（15 分）}设 $F[t]_3 = \{f(t) = a + bt + ct^2 \mid a, b, c \in \mathbb{R}\}$，对 $F[t]_3$ 中的任意元素
-$f(t) = a + bt + ct^2$，定义映射 $T[f(t)] = (a + b + 4c) + (2a + 2b + 3c)t + 3at^2$。\\
-\begin{enumerate}
-    \item 证明 $T$ 是 $F[t]_3$ 上的线性变换；
-    \item 求 $T$ 在基 $1, t, t^2$ 基下的矩阵；
-    \item 求 $T$ 的像空间 $\mathrm{Im} T$ 的一组基和维数。
-\end{enumerate}
+由Smith标准型知特征值为$\lambda=2$（三重），行列式因子为：$D_1 = 1, D_2= \lambda-2, D_3 = (\lambda-2)^3$，\\不变因子为：$d_1 = 1, d_2= \lambda-2, d_3 = (\lambda-2)^2$，初等因子为$\lambda-2, (\lambda-2)^2$。\\
 
-\vspace{0.5cm}
+因此Jordan标准型为$\begin{bmatrix}
+2&   &  \\
+ & 2 & 1\\
+ &   & 2\\
+\end{bmatrix}= diag\left\{2, \begin{bmatrix}2 & 1\\2 & 0\end{bmatrix} \right\}$.\\
+
+显然极小多项式$m_A(\lambda) = d_3 = (\lambda-2)^2$.
+
+
+
+
+\section*{三、（15 分）}
+
+\textbf{解}：（1）证明：映射 $T$ 对$F[t]_3$加法和数乘封闭，且包含$\mathbf{0}$向量，所以为线性变换.
+
+
+（2）下面用两种方法求解，其中解法一为线性变换，解法二为基坐标。
+
+\begin{solve}由已知$\{e_1, e_2, e_3\}=\{1, t, t^2\}$为一组基。
+
+取$a=1, b=0, c=0$,有$T[f(t)]=T[1]=T[e_1]=1+2t+3t^2=
+\begin{bmatrix}1&t&t^2\end{bmatrix}\begin{bmatrix}1\\2\\3\end{bmatrix}$.
+
+取$a=0, b=1, c=0$,有$T[f(t)]=T[t]=T[e_2]=1+2t=
+\begin{bmatrix}1&t&t^2\end{bmatrix}\begin{bmatrix}1\\2\\0\end{bmatrix}$.
+
+取$a=0, b=0, c=3$,有$T[f(t)]=T[t^2]=T[e_3]=4+3t=
+\begin{bmatrix}1&t&t^2\end{bmatrix}\begin{bmatrix}4\\3\\0\end{bmatrix}$.\\
+
+所以$T(1, t, t^2) = T(e_1, e_2, e_3) =\left( T(e_1), T(e_2), T(e_3)\right)=(1, t, t^2)\begin{bmatrix}1&1&4\\2&2&3\\3&0&0\end{bmatrix}$.
+
+不难看出$T$ 在基 $1, t, t^2$ 基下的表示矩阵为$\begin{bmatrix}1&1&4\\2&2&3\\3&0&0\end{bmatrix}$.
+\end{solve}
+
+\begin{solve}
+$T[f(t)] = (a + b + 4c) + (2a + 2b + 3c)t + 3at^2=\begin{bmatrix}1&t&t^2\end{bmatrix}\begin{bmatrix}1&1&4\\2&2&3\\3&0&0\end{bmatrix}\begin{bmatrix}a\\b\\c\end{bmatrix}$.
+
+显然$T$ 在基 $1, t, t^2$ 基下的表示矩阵为$\begin{bmatrix}1&1&4\\2&2&3\\3&0&0\end{bmatrix}$.\\
+\end{solve}
+
+
+（3）由于$rank\begin{bmatrix}1&1&4\\2&2&3\\3&0&0\end{bmatrix}=3$，所以Im$T=3$，显然可以取一组基为$\{1, t, t^2\}$.
+
+
 
 \section*{四、（15 分）}
-已知微分方程组\[
-\begin{cases} 
-\dfrac{dx(t)}{dt} = Ax(t) \\ 
-x(0) = x_0 
-\end{cases}, \quad A = \begin{bmatrix} 2 & 0 & 0 \\ 1 & 1 & 1 \\ 1 & -1 & 3 \end{bmatrix}, \quad x_0 = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}
-\]
-\begin{enumerate}
-    \item 求 $e^{At}, e^A$；
-    \item 求微分方程组的解。
-\end{enumerate}
+\textbf{解}：（1）先求出Smith标准型以得到极小多项式，再利用待定系数法计算即可。\\
 
-\vspace{0.5cm}
+$\lambda I-A = \begin{bmatrix} \lambda-2 & 0 & 0 \\ -1 & \lambda-1 & -1 \\ -1 & 1 & \lambda-3 \end{bmatrix}
+\rightarrow
+\begin{bmatrix} -1 & 1 & \lambda-3\\-1 & \lambda-1 & -1  \\ \lambda-2 & 0 & 0  \end{bmatrix}
+\rightarrow
+\begin{bmatrix} 1 & -1 & \lambda-3\\\lambda-1 & -1 & -1  \\  0&\lambda-2  & 0  \end{bmatrix}\\
+\rightarrow
+\begin{bmatrix} 1 & -1 & \lambda-3\\0 & \lambda-2 & -(\lambda-2)^2   \\  0&\lambda-2  & 0  \end{bmatrix}
+\rightarrow
+\begin{bmatrix} 1 & 0 & 0\\0 & \lambda-2 & -(\lambda-2)^2   \\  0&\lambda-2  & 0  \end{bmatrix}
+\rightarrow
+\begin{bmatrix} 1 & 0 & 0\\0 & \lambda-2 & 0 \\  0&0  & (\lambda-2)^2  \end{bmatrix}$.\\
 
-\section*{五、（15 分）}设 $\mathbb{R}^4$ 的子空间
-\[ W = \{ X = (x_1, x_2, x_3, x_4)^T \mid AX = 0 \}, \text{ 其中 } A = \begin{bmatrix} 1 & 1 & -1 & -1 \\ -1 & 1 & 1 & -1 \\ -1 & -1 & 1 & 1 \\ 1 & -1 & -1 & 1 \end{bmatrix} \]
-对于任意的 $X = (x_1, x_2, x_3, x_4)^T, Y = (y_1, y_2, y_3, y_4)^T \in W$，定义内积
-\[ (X, Y) = x_1y_1 + 2x_2y_2 + x_3y_3 + 2x_4y_4 \]
-\begin{enumerate}
-    \item 证明 $W$ 为子空间；
-    \item 求 $W$ 一组标准正交基。
-\end{enumerate}
+显然$A$的极小多项式为$m_A(\lambda)=(\lambda-2)^2 $，deg\ $m_A(\lambda)$=2，所以待定系数的最高次为$2-1=1$次。设$f(\lambda) = a_0+a_1\lambda $。记$e^{\lambda} = g(\lambda)$.
 
-\vspace{0.5cm}
+考虑$m_A(\lambda) = (\lambda-2)^2 $，特征值为$\lambda = 2$（两重），带入$f(\lambda)$得：
+$$f(2)=a_0+2a_1=g(2)=e^2$$
+$$f'(2)=a_1=g'(2)=e^2$$
+
+解上述方程组得到系数:
+$$a_0= -e^2$$
+$$a_1= e^2$$
+
+所以$e^A=a_0E+a_1A=(A-E)\times e^2=\begin{bmatrix} 1 & 0 & 0\\1 & 0 & 1 \\  1&-1  & 2  \end{bmatrix}e^2$.
+
+同理可得$e^{tA}=\begin{bmatrix} 1 & 0 & 0\\t & 1-t & t \\  t&-t  & 1+t \end{bmatrix}e^{2t}$.
+
+（2）带入公式即可：
+$$x(t)=e^{tA}x(0)=\begin{bmatrix} 1 & 0 & 0\\t & 1-t & t \\  t&-t  & 1+t \end{bmatrix}\begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}e^{2t}=\begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}e^{2t}$$
+
+
+\section*{五、（15 分）}
+\textbf{解}：（1）显然.
+
+（2）由题意，$W$中向量为$AX = 0$的解空间，又注意到rank$A=2$，所以解空间维数为2。\\
+
+解方程$AX = 0$得$X = c_1\begin{bmatrix} 1 \\ -1 \\ -1\\ 1\end{bmatrix}+c_2\begin{bmatrix} 1 \\ 1 \\ 1\\ 1\end{bmatrix}(c_1,c_2\in \mathbf{R})$，二者恰好正交。\\
+
+显然$W$的一组标准正交基可取$\displaystyle\frac{1}{2}\begin{bmatrix} 1 \\ -1 \\ -1\\ 1\end{bmatrix}$和$\displaystyle\frac{1}{2}\begin{bmatrix} 1 \\ 1 \\ 1\\ 1\end{bmatrix}$。
+
+\begin{sign}
+若上面解出来的$X$两组解向量并不正交，进行一次Gram-Schmidt正交化即可。
+\end{sign}
+
+
 
 \section*{六、（25 分）}
-设 $A = \begin{bmatrix} 0 & 0 & 2 \\ 1 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 1 & 1 \end{bmatrix}, b = \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}$
+\textbf{解}：（1）注意到矩阵A的一、二列相同，且二三列显然线性无关，因此rankA=2。\\
 
-\begin{enumerate}
-    \item 求 $A$ 的满秩分解；
-    \item 求 $A$ 的广义逆 $A^+$；
-    \item 利用广义逆判断方程组 $Ax = b$ 的相容性；
-    \item 求 $Ax = b$ 的最小二乘解；
-    \item 求 $Ax = b$ 的极小范数最小二乘解。
-\end{enumerate}
+利用矩阵乘法的右乘有$A = \begin{bmatrix} 0 & 0 & 2 \\ 1 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 1 & 1 \end{bmatrix}=BC= \begin{bmatrix}0 & 2 \\1 & 0 \\0 & 1 \\1 & 1 \end{bmatrix}\begin{bmatrix}1&1&0\\0&0&1\end{bmatrix}$.\\
+
+即得满秩分解A=BC，其中：
+
+$$B= \begin{bmatrix}0 & 2 \\1 & 0 \\0 & 1 \\1 & 1 \end{bmatrix},
+C=\begin{bmatrix}1&1&0\\0&0&1\end{bmatrix}$$
+
+（2）由于A为$4\times3$阶矩阵，所以Moore-Penrose广义逆$A^+$应为$3\times4$阶矩阵，直接带入公式即可。
+
+$$\begin{aligned}A^+ &= C^H(CC^H)^{-1}(BB^H)^{-1}B^H\\
+&= \begin{bmatrix}1&0\\1&0\\0&1\end{bmatrix}
+\begin{bmatrix}2 & 0\\0 & 1\end{bmatrix}^{-1}
+\begin{bmatrix}2 & 1\\1 & 6\end{bmatrix}^{-1}
+\begin{bmatrix}0&1&0&1\\2&0&1&1\end{bmatrix}\\
+&=\displaystyle\frac{1}{22}\begin{bmatrix}1&0\\1&0\\0&1\end{bmatrix}
+\begin{bmatrix}1 & 0\\0 & 2\end{bmatrix}
+\begin{bmatrix}6 & -1\\-1 & 2\end{bmatrix}
+\begin{bmatrix}0&1&0&1\\2&0&1&1\end{bmatrix}
+=\displaystyle\frac{1}{22}
+\begin{bmatrix}
+-2&6&-1&5\\
+-2&6&-1&5\\
+8&-2&4&2\\
+\end{bmatrix}
+\end{aligned}$$
+
+$$A^+=\displaystyle\frac{1}{22}
+\begin{bmatrix}
+-2&6&-1&5\\
+-2&6&-1&5\\
+8&-2&4&2\\
+\end{bmatrix}$$
+
+
+（3）相容性即验证$AA^+b$是否与b相等即可。
+
+$$AA^+ = \displaystyle\frac{1}{22}
+\begin{bmatrix} 0 & 0 & 2 \\ 1 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 1 & 1 \end{bmatrix}
+\begin{bmatrix}
+-2&6&-1&5\\
+-2&6&-1&5\\
+8&-2&4&2\\
+\end{bmatrix}=\displaystyle\frac{1}{22}
+\begin{bmatrix}
+16&-4&8&4\\
+-4&12&-2&10\\
+8&-2&4&2\\
+4&10&2&12
+\end{bmatrix}
+$$
+$$AA^+b=\displaystyle\frac{1}{22}
+\begin{bmatrix}
+16&-4&8&4\\
+-4&12&-2&10\\
+8&-2&4&2\\
+4&10&2&12
+\end{bmatrix}
+\begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}
+=\displaystyle\frac{1}{11}\begin{bmatrix}12\\8\\6\\14\end{bmatrix}\neq\begin{bmatrix}1\\1\\1\\1\end{bmatrix}=b$$
+
+显然，方程组 \( Ax = b \) 的相容性不相容。
+
+（5）极小范数最小二乘解为$x^*=A^+b$。
+
+$$x^*=A^+b=\displaystyle\frac{1}{22}
+\begin{bmatrix}
+-2&6&-1&5\\
+-2&6&-1&5\\
+8&-2&4&2\\
+\end{bmatrix}
+\begin{bmatrix}1\\1\\1\\1\end{bmatrix}
+=\displaystyle\frac{1}{11}
+\begin{bmatrix}4\\4\\6\end{bmatrix}$$
+
+（4）最小二乘解为$x=A^+b+(E-A^+A)y$，其中$y\in \mathbf{R^3}$。
+$$A^+A=\displaystyle\frac{1}{22}
+\begin{bmatrix}
+-2&6&-1&5\\
+-2&6&-1&5\\
+8&-2&4&2\\
+\end{bmatrix}
+\begin{bmatrix} 0 & 0 & 2 \\ 1 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 1 & 1 \end{bmatrix}
+=\displaystyle\frac{1}{2}
+\begin{bmatrix} 1 & 1 & 0 \\1 & 1 &0\\0 & 0 &2 \end{bmatrix} 
+$$
+
+$$E-A^+A=\displaystyle\frac{1}{2}
+\begin{bmatrix} 1 & -1 & 0\\ -1 & 1 &0\\0 & 0 & 0 \end{bmatrix} $$
+
+取$y = \begin{bmatrix} a & b & c \end{bmatrix}^T$，代入$(E-A^+A)y$得：
+$$(E-A^+A)y=\displaystyle\frac{1}{2}
+\begin{bmatrix} 1 & -1 & 0\\ -1 & 1 &0\\0 & 0 & 0 \end{bmatrix}\begin{bmatrix} a \\ b \\ c \end{bmatrix}=
+\begin{bmatrix} a-b \\ b-a \\ 0 \end{bmatrix}
+=(a-b)\begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}
+$$
+
+由于$y$是任意的，因此$(E-A^+A)y=c\begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix},(c\in \mathbf{R})$.\\
+
+综上，最小二乘解为$x=\displaystyle\frac{1}{11}
+\begin{bmatrix}4\\4\\6\end{bmatrix}+c\begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix},(c\in \mathbf{R})$.
+
 
 \end{document}
