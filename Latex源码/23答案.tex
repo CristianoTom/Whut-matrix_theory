@@ -31,7 +31,7 @@ $A^HA=\begin{bmatrix}
 \end{bmatrix}$,
 $\lambda I-A^HA=\begin{bmatrix}
 \lambda-3&-3\\-3&\lambda-9
-\end{bmatrix}$，$\lambda = 6\pm2\sqrt{3}$，所以奇异值为$\sqrt{6\pm2\sqrt{3}}$。
+\end{bmatrix}$，$\lambda = 6\pm3\sqrt{2}$，所以奇异值为$\sqrt{6\pm3\sqrt{2}}$。
 \end{lt}
 
 \begin{lt}
@@ -49,7 +49,7 @@ $$A=QR=(\gamma_1, \gamma_2)\begin{bmatrix}
 ||\beta_1||&(\alpha_2, \gamma_1)\\0&||\beta_2||
 \end{bmatrix}
 =\begin{bmatrix}
-\displaystyle\frac{1}{\sqrt3}&\displaystyle\frac{1}{\sqrt6}\\\displaystyle\frac{1}{\sqrt3}&\displaystyle\frac{2}{\sqrt6}\\\displaystyle\frac{1}{\sqrt3}&\displaystyle\frac{1}{\sqrt6}\end{bmatrix}
+\displaystyle\frac{1}{\sqrt3}&\displaystyle\frac{1}{\sqrt6}\\\displaystyle\frac{1}{\sqrt3}&-\displaystyle\frac{2}{\sqrt6}\\\displaystyle\frac{1}{\sqrt3}&\displaystyle\frac{1}{\sqrt6}\end{bmatrix}
 \begin{bmatrix}
 \sqrt3&\sqrt3\\0&\sqrt6\end{bmatrix}$$
 \end{lt}
@@ -118,7 +118,7 @@ $\lambda E - A=\begin{bmatrix} \lambda-2 & 0 & 0 \\ -1 & \lambda-1 & -1 \\ -1 & 
 2&   &  \\
  & 2 & 1\\
  &   & 2\\
-\end{bmatrix}= diag\left\{2, \begin{bmatrix}2 & 1\\2 & 0\end{bmatrix} \right\}$.\\
+\end{bmatrix}= diag\left\{2, \begin{bmatrix}2 & 1\\ 0& 2\end{bmatrix} \right\}$.\\
 
 显然极小多项式$m_A(\lambda) = d_3 = (\lambda-2)^2$.
 
@@ -140,7 +140,7 @@ $\lambda E - A=\begin{bmatrix} \lambda-2 & 0 & 0 \\ -1 & \lambda-1 & -1 \\ -1 & 
 取$a=0, b=1, c=0$,有$T[f(t)]=T[t]=T[e_2]=1+2t=
 \begin{bmatrix}1&t&t^2\end{bmatrix}\begin{bmatrix}1\\2\\0\end{bmatrix}$.
 
-取$a=0, b=0, c=3$,有$T[f(t)]=T[t^2]=T[e_3]=4+3t=
+取$a=0, b=0, c=1$,有$T[f(t)]=T[t^2]=T[e_3]=4+3t=
 \begin{bmatrix}1&t&t^2\end{bmatrix}\begin{bmatrix}4\\3\\0\end{bmatrix}$.\\
 
 所以$T(1, t, t^2) = T(e_1, e_2, e_3) =\left( T(e_1), T(e_2), T(e_3)\right)=(1, t, t^2)\begin{bmatrix}1&1&4\\2&2&3\\3&0&0\end{bmatrix}$.
@@ -197,9 +197,9 @@ $$x(t)=e^{tA}x(0)=\begin{bmatrix} 1 & 0 & 0\\t & 1-t & t \\  t&-t  & 1+t \end{bm
 
 （2）由题意，$W$中向量为$AX = 0$的解空间，又注意到rank$A=2$，所以解空间维数为2。\\
 
-解方程$AX = 0$得$X = c_1\begin{bmatrix} 1 \\ -1 \\ -1\\ 1\end{bmatrix}+c_2\begin{bmatrix} 1 \\ 1 \\ 1\\ 1\end{bmatrix}(c_1,c_2\in \mathbf{R})$，二者恰好正交。\\
+解方程$AX = 0$得$X = c_1\begin{bmatrix} 1 \\ 0 \\ 1\\ 0\end{bmatrix}+c_2\begin{bmatrix} 0 \\ 1 \\ 0\\ 1\end{bmatrix}(c_1,c_2\in \mathbf{R})$，但是二者恰好正交。\\
 
-显然$W$的一组标准正交基可取$\displaystyle\frac{1}{2}\begin{bmatrix} 1 \\ -1 \\ -1\\ 1\end{bmatrix}$和$\displaystyle\frac{1}{2}\begin{bmatrix} 1 \\ 1 \\ 1\\ 1\end{bmatrix}$。
+显然$W$的一组标准正交基可取$\displaystyle\frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 0 \\ 1\\ 0\end{bmatrix}$和$\displaystyle\frac{1}{\sqrt{2}}\begin{bmatrix} 0 \\ 1 \\ 0\\ 1\end{bmatrix}$。
 
 \begin{sign}
 若上面解出来的$X$两组解向量并不正交，进行一次Gram-Schmidt正交化即可。
@@ -219,7 +219,7 @@ C=\begin{bmatrix}1&1&0\\0&0&1\end{bmatrix}$$
 
 （2）由于A为$4\times3$阶矩阵，所以Moore-Penrose广义逆$A^+$应为$3\times4$阶矩阵，直接带入公式即可。
 
-$$\begin{aligned}A^+ &= C^H(CC^H)^{-1}(BB^H)^{-1}B^H\\
+$$\begin{aligned}A^+ &= C^H(CC^H)^{-1}(B^HB)^{-1}B^H\\
 &= \begin{bmatrix}1&0\\1&0\\0&1\end{bmatrix}
 \begin{bmatrix}2 & 0\\0 & 1\end{bmatrix}^{-1}
 \begin{bmatrix}2 & 1\\1 & 6\end{bmatrix}^{-1}
